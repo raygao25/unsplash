@@ -1,0 +1,31 @@
+{
+  "name": "unsplash",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "history": "^4.7.2",
+    "make-action-creator": "^0.4.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-observable": "^0.18.0",
+    "rxjs": "^5.5.10",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "react-scripts": "1.1.4",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-devtools": "^3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
+  }
+}
