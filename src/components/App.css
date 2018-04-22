@@ -1,4 +1,4 @@
-.PhotoGrid {
+/* .PhotoGrid {
 	line-height: 0;
 	
 	-webkit-column-count: 5;
@@ -7,14 +7,14 @@
 	-moz-column-gap: 5px;
 	column-count: 5;
 	column-gap: 5px;
-}
+} */
 
 .PhotoGrid .Photo {
 	/* Just in case there are inline attributes */
-	width: 100% !important;
-	height: auto !important;
+	/* width: 100% !important; */
+	/* height: auto !important; */
 }
 
-.Photo {
+/* .Photo {
 	padding-bottom: 5px !important;
-}
+} */
