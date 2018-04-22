@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import 'rxjs';
 
-import './index.css';
-import App from './components/app.container';
+import MainPage from './components/app.container';
 import registerServiceWorker from './registerServiceWorker';
 import rootEpic from './epics/epics';
 import rootReducer from './reducer/reducer';
+import './index.css';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -25,7 +25,9 @@ const store = createStore(
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<BrowserRouter>
+			<Route path="/" component={MainPage} />
+		</BrowserRouter>
 	</Provider>,
 	document.getElementById('root')
 );

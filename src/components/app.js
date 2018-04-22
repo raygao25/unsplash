@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Observable } from 'rxjs/Observable';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 
+import DetailView from './detailView';
 import './app.css';
 
 /**
@@ -15,21 +17,18 @@ class App extends Component {
 		this.props.loadPhoto();
 
 		// Reformat photos when resize window or rotate device
-		Observable.merge(
-			Observable.fromEvent(window, 'resize'),
-			Observable.fromEvent(window, 'orientationchange'),
-		)
+		Observable.fromEvent(window, 'resize')
 			.debounceTime(300)
 			.subscribe(() => this.props.reformatPhoto());
 
 		// Infinite scroll
-		Observable.fromEvent(window, 'scroll')
-			.debounceTime(50)
-			.subscribe(() => {
-				if (window.innerHeight + window.scrollY > document.body.scrollHeight - 800) {
-					this.props.loadPhoto();
-				}
-			});
+		// Observable.fromEvent(window, 'scroll')
+		// 	.debounceTime(50)
+		// 	.subscribe(() => {
+		// 		if (window.innerHeight + window.scrollY > document.body.scrollHeight - 800) {
+		// 			this.props.loadPhoto();
+		// 		}
+		// 	});
 	}
 
 
@@ -39,12 +38,13 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
+				<header className="App-header">
+					Welcome to React
+				</header>
 				<div className="PhotoGrid">
 					{this.props.photoGridElement}
 				</div>
-				<button onClick={() => this.props.loadPhoto()}>
-					Load more
-				</button>
+				<Route path="/photo/:id" component={DetailView} />
 			</div>
 		);
 	}

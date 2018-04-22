@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import '../app.css';
 
 /**
@@ -26,13 +28,19 @@ const formatPhotos = (newPhotos) => {
 						(
 							<div className="PhotoRow" key={`PhotoRow${id}`}>
 								{curRow.map((photo) => (
-									<img
-										className="Photo"
-										height={`${alteredHeight}px`}
+									<Link
+										to={`/photo/${photo.id}`}
+										tabIndex="0"
 										key={photo.id}
-										src={photo.urls.small}
-										alt=""
-									/>
+										href={`/photo/${photo.id}`}
+									>
+										<img
+											className="Photo"
+											height={`${alteredHeight}px`}
+											src={photo.urls.small}
+											alt=""
+										/>
+									</Link>
 								))}
 							</div>
 						),
