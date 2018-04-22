@@ -6,9 +6,9 @@ import getMockData from './mockData';
 /**
  * Epic for loading photos
  */
-const loadPhotoEpic = (action$) =>
+const loadPhotoEpic = (action$, store) =>
 	action$.ofType(loadPhoto.START)
-		.map(() => loadPhoto.success(getMockData()));
+		.map(() => loadPhoto.success(getMockData(store.getState().nextPage) || []));
 
 
 const rootEpic = combineEpics(loadPhotoEpic);

@@ -1,12 +1,12 @@
 import React from 'react';
+import '../app.css';
 
 /**
  * Function to return a formatted grid of photos
  */
 const formatPhotos = (newPhotos) => {
-	console.log('reformated');
-	const windowWidth = window.innerWidth - 10;
-	const defaultPhotoHeight = 300;
+	const windowWidth = window.innerWidth - 20;
+	const defaultPhotoHeight = 350;
 
 	const photoGrid = newPhotos.reduce(
 		(acc, curPhoto) => {
@@ -19,7 +19,8 @@ const formatPhotos = (newPhotos) => {
 			}];
 
 			if (acc.curRowWidth + curPhotoWidth > windowWidth) {
-				const alteredHeight = (windowWidth / (acc.curRowWidth + curPhotoWidth)) * defaultPhotoHeight;
+				const padding = (curRow.length - 1) * 10;
+				const alteredHeight = ((windowWidth - padding) / (acc.curRowWidth + curPhotoWidth)) * defaultPhotoHeight;
 				return {
 					photoGrid: [...acc.photoGrid,
 						(

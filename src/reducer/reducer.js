@@ -2,7 +2,7 @@ import {
 	loadPhoto,
 	reformatPhoto,
 } from '../action/action';
-import formatPhotos from '../utilities/formatPhotos';
+import formatPhotos from '../components/utilities/formatPhotos';
 
 /**
  * Returns initial state
@@ -10,6 +10,7 @@ import formatPhotos from '../utilities/formatPhotos';
 const initialState = () => ({
 	allPhotos: [],
 	photoGridElement: [],
+	nextPage: 1,
 });
 
 /**
@@ -38,6 +39,7 @@ const reducer = (state = initialState(), action) => {
 					...state.photoGridElement,
 					...formatPhotos(newPhotos),
 				],
+				nextPage: state.nextPage + 1,
 			};
 		case reformatPhoto.type:
 			return {
