@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 
-import DetailView from './detailView';
-import './app.css';
+import DetailView from './detailView.container';
+import './style.css';
 
 /**
  * Main component
@@ -22,13 +22,13 @@ class App extends Component {
 			.subscribe(() => this.props.reformatPhoto());
 
 		// Infinite scroll
-		// Observable.fromEvent(window, 'scroll')
-		// 	.debounceTime(50)
-		// 	.subscribe(() => {
-		// 		if (window.innerHeight + window.scrollY > document.body.scrollHeight - 800) {
-		// 			this.props.loadPhoto();
-		// 		}
-		// 	});
+		Observable.fromEvent(window, 'scroll')
+			.debounceTime(50)
+			.subscribe(() => {
+				if (window.innerHeight + window.scrollY > document.body.scrollHeight - 800) {
+					this.props.loadPhoto();
+				}
+			});
 	}
 
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import '../app.css';
+import '../style.css';
 
 /**
  * Function to return a formatted grid of photos
@@ -31,6 +31,7 @@ const formatPhotos = (newPhotos) => {
 									<Link
 										to={`/photo/${photo.id}`}
 										tabIndex="0"
+										id={photo.id}
 										key={photo.id}
 										href={`/photo/${photo.id}`}
 									>
