@@ -11,10 +11,11 @@ const accessKey = '0cd3d3abcd4f41e708727f2da359e67da874039d03d73a849ab76cde41e72
  */
 const loadPhotoEpic = (action$, store) =>
 	action$.ofType(loadPhoto.START)
+		.filter(() => !store.getState().preventRedundantLoading)
 		.mergeMap(() => ajax.getJSON(`https://api.unsplash.com/photos/curated?client_id=${accessKey}&page=${store.getState().nextPage}&per_page=30`))
 		.map((res) => loadPhoto.success(res || []))
 		.catch((err) => of({
-			type: 'FETCH_STATS_DAILY_FAILED',
+			type: 'FETCH_PHOTOS_FAILED',
 			payload: err.xhr.response,
 			error: true,
 		}));

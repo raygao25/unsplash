@@ -22,7 +22,8 @@ class DetailView extends React.Component {
 		const photoId = match.params.id;
 
 		const index = allPhotos.findIndex((photo) => photo.id === photoId);
-		if (index > allPhotos.length - 2) nextProps.loadPhoto();
+		if (index < 0) return { history };
+		if (index > allPhotos.length - 10) nextProps.loadPhoto();
 
 		const {
 			date, firstName, lastName, likes, profileImage,
@@ -56,7 +57,9 @@ class DetailView extends React.Component {
 	* To set focus to last viewed photo when exit full screen
 	*/
 	componentWillUnmount() {
-		setTimeout(() => document.getElementById(this.state.photoId).focus(), 0);
+		setTimeout(() => {
+			if (this.state.photoId) document.getElementById(this.state.photoId).focus();
+		}, 0);
 	}
 
 	getPhotoComponent = () => (

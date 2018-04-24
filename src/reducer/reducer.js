@@ -24,7 +24,9 @@ const reducer = (state = initialState(), action) => {
 		case loadPhoto.START:
 			return {
 				...state,
+				preventRedundantLoading: state.loading,
 				loading: true,
+
 			};
 		case loadPhoto.SUCCESS:
 			newPhotos = payload.map((photoObj) => ({
@@ -54,6 +56,11 @@ const reducer = (state = initialState(), action) => {
 			return {
 				...state,
 				photoGridElement: formatPhotos(state.allPhotos),
+			};
+		case 'FETCH_PHOTOS_FAILED':
+			return {
+				...state,
+				loading: false,
 			};
 		default:
 			return state;
