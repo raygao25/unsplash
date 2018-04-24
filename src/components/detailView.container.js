@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { clickPhoto } from '../action/action';
+import { loadPhoto, clickPhoto } from '../action/action';
 import detailView from './detailView';
 
 /** */
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 
 /** */
 const mapDispatchToProps = (dispatch) => bindActionCreators({
+	loadPhoto: loadPhoto.start,
 	clickPhoto,
 }, dispatch);
 

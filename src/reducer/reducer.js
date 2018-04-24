@@ -11,6 +11,7 @@ const initialState = () => ({
 	allPhotos: [],
 	photoGridElement: [],
 	nextPage: 1,
+	loading: false,
 });
 
 /**
@@ -20,6 +21,11 @@ const reducer = (state = initialState(), action) => {
 	const { payload } = action;
 	let newPhotos = [];
 	switch (action.type) {
+		case loadPhoto.START:
+			return {
+				...state,
+				loading: true,
+			};
 		case loadPhoto.SUCCESS:
 			newPhotos = payload.map((photoObj) => ({
 				ratio: photoObj.width / photoObj.height,
@@ -42,6 +48,7 @@ const reducer = (state = initialState(), action) => {
 					...formatPhotos(newPhotos),
 				],
 				nextPage: state.nextPage + 1,
+				loading: false,
 			};
 		case reformatPhoto.type:
 			return {

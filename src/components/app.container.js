@@ -10,6 +10,7 @@ import app from './app';
 /** */
 const mapStateToProps = (state) => ({
 	photoGridElement: state.photoGridElement,
+	loading: state.loading,
 });
 
 /** */

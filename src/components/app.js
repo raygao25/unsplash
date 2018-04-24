@@ -44,6 +44,16 @@ class App extends Component {
 				<div className="PhotoGrid">
 					{this.props.photoGridElement}
 				</div>
+				{this.props.loading &&
+					<i
+						className="fa fa-spinner fa-3x fa-spin"
+						style={{
+							left: '50%',
+							position: 'absolute',
+							padding: '20px',
+						}}
+					/>
+				}
 				<Route path="/photo/:id" component={DetailView} />
 			</div>
 		);
@@ -52,6 +62,7 @@ class App extends Component {
 
 App.propTypes = {
 	photoGridElement: PropTypes.arrayOf(PropTypes.element),
+	loading: PropTypes.bool,
 	loadPhoto: PropTypes.func,
 	reformatPhoto: PropTypes.func,
 };
