@@ -39,7 +39,7 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
-					Welcome to React
+					<i className="fa fa-camera-retro fa-lg" />
 				</header>
 				<div className="PhotoGrid">
 					{this.props.photoGridElement}

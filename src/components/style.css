@@ -7,6 +7,10 @@
 	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
+.App-header .fa-camera-retro {
+	padding: 10px;
+}
+
 .PhotoGrid {
 	padding-top: 10px;
 	padding-left: 10px;
@@ -24,5 +28,139 @@
 	position: fixed;
 	width: 100%;
 	height: 100%;
-  }
-  
+}
+
+.Modal {
+	position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    border-radius: 4px;
+    outline: none;
+	padding: 0;
+}
+
+.Modal .fa-times {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 999;
+	cursor: pointer;
+}
+
+.DetailView-Info {
+	display: inline-block;
+	position: absolute;
+	height: 100%;
+	width: 20%;
+}
+
+.DetailView-Info {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.DetailView-Info .Profile {
+	font-size: 1.3em;
+}
+
+.DetailView-Info .Date {
+	padding-top: 10px;
+	color: #555555c7;
+}
+
+.DetailView-Info .Likes {
+	padding-top: 10px;
+	color: #555555c7;
+}
+
+.DetailView-Photo {
+	background: gray;
+	display: inline-block;
+	position: relative;
+	height: 100%;
+	width: 80%;
+}
+
+
+.DetailView-Photo img {
+	position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	user-select: none;
+}
+
+.DetailView-Photo .Nav-button {
+	z-index: 1;
+	display: inline-block;
+	position: relative;
+	height: 100%;
+    width: 50%;
+	cursor: pointer;
+}
+
+
+.DetailView-Photo .Nav-button .fa-chevron-left {
+	color: #e8e5e53d;
+	left: 3px;
+	position: absolute;
+	top: 50%;
+}
+
+.DetailView-Photo .Nav-button .fa-chevron-right {
+	color: #e8e5e53d;
+	right: 3px;
+	position: absolute;
+	top: 50%;
+}
+
+.DetailView-Photo .Nav-button .fa:hover {
+	color: white;
+}
+
+@media only screen and (max-width: 850px) {
+	.DetailView-Info {
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.Modal {
+		overflow-y: auto;
+	}
+	.DetailView-Info {
+		display: block;
+		height: 20%;
+		width: 100%;
+	}
+	.DetailView-Photo {
+		display: block;
+		height: 80%;
+		width: 100%;
+	}
+
+	.DetailView-Info {
+		padding-left: 10px;
+		padding-top: 10px;
+	}
+
+	.DetailView-Info .Profile {
+		font-size: 1em;
+	}
+
+	.DetailView-Info .Date {
+		padding-top: 0;
+	}
+	
+	.DetailView-Info .Likes {
+		padding-top: 0;
+	}
+}

@@ -8,7 +8,7 @@ import '../style.css';
  */
 const formatPhotos = (newPhotos) => {
 	const windowWidth = window.innerWidth - 20;
-	const defaultPhotoHeight = 350;
+	const defaultPhotoHeight = 400;
 
 	const photoGrid = newPhotos.reduce(
 		(acc, curPhoto) => {
@@ -20,7 +20,7 @@ const formatPhotos = (newPhotos) => {
 				urls,
 			}];
 
-			if (acc.curRowWidth + curPhotoWidth > windowWidth) {
+			if (acc.curRowWidth + curPhotoWidth > windowWidth || curRow.length === 4) {
 				const padding = (curRow.length - 1) * 10;
 				const alteredHeight = ((windowWidth - padding) / (acc.curRowWidth + curPhotoWidth)) * defaultPhotoHeight;
 				return {

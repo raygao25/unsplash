@@ -26,7 +26,9 @@ const reducer = (state = initialState(), action) => {
 				id: photoObj.id,
 				likes: photoObj.likes,
 				date: photoObj.created_at,
-				userName: photoObj.user.username,
+				firstName: photoObj.user.first_name,
+				lastName: photoObj.user.last_name,
+				profileImage: photoObj.user.profile_image.medium,
 				urls: photoObj.urls,
 			}));
 			return {
