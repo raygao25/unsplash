@@ -83,7 +83,7 @@
 	display: inline-block;
 	position: relative;
 	height: 100%;
-	width: 80%;
+	width: calc(100% - 250px);
 }
 
 
@@ -126,16 +126,26 @@
 }
 
 @media only screen and (max-width: 850px) {
+	.DetailView-Photo {
+		width: calc(100% - 150px);
+	}
+
 	.DetailView-Info {
 		padding-left: 10px;
 		padding-top: 10px;
 	}
+	.DetailView-Info .Profile {
+		font-size: 1em;
+	}
+	.DetailView-Info .Date {
+		font-size: 0.8em;
+	}
+	.DetailView-Info .Likes {
+		font-size: 0.8em;
+	}
 }
 
-@media only screen and (max-width: 600px) {
-	.Modal {
-		overflow-y: auto;
-	}
+@media only screen and (max-width: 500px) {
 	.DetailView-Info {
 		display: block;
 		height: 20%;
@@ -143,17 +153,13 @@
 	}
 	.DetailView-Photo {
 		display: block;
-		height: 80%;
+		height: calc(100% - 135px);
 		width: 100%;
 	}
 
 	.DetailView-Info {
 		padding-left: 10px;
 		padding-top: 10px;
-	}
-
-	.DetailView-Info .Profile {
-		font-size: 1em;
 	}
 
 	.DetailView-Info .Date {
